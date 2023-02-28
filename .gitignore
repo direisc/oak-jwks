@@ -1,0 +1,8 @@
+node_modules
+.coverage
+logs
+dist
+*.log
+.yarnrc
+.DS_Store
+.database
