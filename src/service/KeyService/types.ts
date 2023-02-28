@@ -16,18 +16,6 @@ export const keyRequest = z.union([keyRSA, keyEC])
 export type KeyRequest = z.input<typeof keyRequest>
 export type KeyRequestOutput = z.output<typeof keyRequest>
 
-export const typeCerts = z.enum(['PEM', 'JSON']).default('JSON')
-
-// const keyBase = z.object({
-//   kid: z.string(),
-//   exp: z.coerce.date().optional(),
-//   key: z.any().optional(),
-// })
-// const key = z.intersection(keyBase, z.union([keyRSA, keyEC]))
-// export type Key = z.input<typeof key>
-
-// type Literal = string | number | boolean | null
-// type KeyJSON = { [key: string]: Literal | KeyJSON }
-// export type JWKS = {
-//   keys: KeyJSON[]
-// }
+export const queryCertsSchema = z.object({
+  type: z.enum(['PEM', 'JSON']).default('JSON')
+})

@@ -1,7 +1,12 @@
 import { RequestHandler } from 'express'
 import { extractJWKS } from '../service/KeyService'
-import { typeCerts } from '../service/KeyService/types'
+import { queryCertsSchema } from '../service/KeyService/types'
 
 export const getPrivateCerts: RequestHandler = async (req, res) => {
-  res.json({ keys: await extractJWKS(typeCerts.parse(req.query.type), true) })
+  res.json({
+    keys: await extractJWKS({
+      ...queryCertsSchema.parse(req.query),
+      exportPrivateKeys: true
+    })
+  })
 }

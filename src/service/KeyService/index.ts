@@ -30,10 +30,14 @@ export const requestNewKey = async ({ alg, expDays, size }: KeyRequest) => {
   return keyJSON
 }
 
-export const extractJWKS = async (
-  type: 'PEM' | 'JSON' = 'JSON',
+type ExtractJWKS = {
+  type: 'PEM' | 'JSON'
   exportPrivateKeys?: boolean
-) => {
+}
+export const extractJWKS = async ({
+  type = 'JSON',
+  exportPrivateKeys
+}: ExtractJWKS) => {
   const keyStore = JWK.createKeyStore()
 
   const keys = await prisma.key.findMany({
