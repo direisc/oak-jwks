@@ -8,7 +8,8 @@ Generate and management keys as JWK, and auto rotate keys.
 - [x] get public keys (JWKS / PEM)
 - [x] get private keys (JWKS / PEM)
 
-## Scope - Management Rotation
+## Scope - Management Rotation and expiration
+- [x] don't fetch expired tokens
 - [ ] request new key with rotate config
 - [ ] schedule for rotate new keys
 

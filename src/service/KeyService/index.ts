@@ -43,6 +43,26 @@ export const extractJWKS = async ({
   const keys = await prisma.key.findMany({
     select: {
       key: true,
+    },
+    where: {
+      OR: [
+        {
+          exp: {
+            equals: null
+          },
+        },
+        {
+          exp: {
+            gt: new Date(),
+          }
+        }
+      ]
+    },
+    orderBy: {
+      exp: {
+        sort: 'desc',
+        nulls: 'first'
+      }
     }
   })
 
