@@ -8,7 +8,7 @@ const keyRSA = z.object({
 
 const keyEC = z.object({
   alg: z.enum(['EC']),
-  size: z.enum(['P-256', 'P-384', 'P-521', 'secp256r1', 'secp384r1', 'secp521r1']).default('P-256'),
+  size: z.enum(['P-256', 'P-384', 'P-521', 'secp256r1', 'secp384r1', 'secp521r1']).optional().default('P-256'),
   expDays: z.number().positive().optional(),
 })
 

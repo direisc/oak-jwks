@@ -32,3 +32,16 @@ First install dependencies of project with `pnpm i`
 Second run this command for execute local instance `pnpm dev`
 
 Now API running on [http://localhost:3000/](http://localhost:3000/)
+
+## Samples for usage
+
+```bash
+# get public certs
+curl localhost:3000/certs
+
+# get private certs (not exposed to web)
+curl localhost:3000/certs/private
+
+# generate new key
+curl -X POST localhost:3000/certs -H 'Content-Type: application/json' -d '{"alg":"RSA"}'
+```
